@@ -33,7 +33,7 @@ Unlike the old static version, this remastered version includes:
 ## 📸 Preview
 
 <div align="center">
-  <img src="preview.png" alt="Starbucks Redesign Preview" width="100%" style="border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" />
+  <img src="https://github.com/pawindyanto/Starbuck/blob/main/starbucks.png" alt="Starbucks Redesign Preview" width="100%" style="border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" />
 </div>
 
 ## 🛠️ How It Works
