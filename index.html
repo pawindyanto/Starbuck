@@ -4,56 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <title>Starbucks Coffee - Modern Redesign</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <title>Starbucks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
-    <section>
-        <div class="circle"></div>
-        <header>
-            <a href="#" ><img src="images/logo.png" alt="" class="logo"></a>
+
+    <div class="circle-bg"></div>
+
+    <header class="reveal-top">
+        <a href="#" class="logo-container">
+            <img src="images/logo.png" alt="Starbucks Logo" class="logo">
+        </a>
+        <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#" class="active">Home</a></li>
                 <li><a href="#">Menu</a></li>
                 <li><a href="#">What's New</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
-        </header>
+        </nav>
+    </header>
+
+    <section class="hero">
         <div class="content">
-            <div class="textBox">
-                <h2>It's not just Coffe<br>It's <span>Starbucks</span></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem porro magnam provident enim corrupti eos consequatur quo vero ipsum ullam ex aliquid deserunt voluptate, ea, libero laboriosam! Iste, ipsum blanditiis.</p>
-                <a href="#">Order Now</a>
+            <div class="textBox reveal-left">
+                <h2>It's not just Coffee,<br>It's <span class="brand-name">Starbucks</span></h2>
+                <p>Rasakan sensasi berbeda di setiap tegukan. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nikmati perpaduan rasa yang sempurna untuk memulai harimu.</p>
+                <a href="#" class="btn-order">Order Now</a>
             </div>
-            <div class="imgBox">
-                <img src="images/img1.png" class="starbucks" alt="">
+
+            <div class="imgBox reveal-right">
+                <img src="images/img1.png" class="starbucks-product floating-animate" alt="Main Drink">
             </div>
         </div>
-        <ul class="thumb">
-            <li><img src="images/thumb1.png" onclick="imgSlider('images/img1.png');ubahwarna('#017143')" alt=""></li>
-            <li><img src="images/thumb2.png" onclick="imgSlider('images/img2.png');ubahwarna('#eb7495')" alt=""></li>
-            <li><img src="images/thumb3.png" onclick="imgSlider('images/img3.png');ubahwarna('#d752b1')" alt=""></li>
+
+        <ul class="thumb reveal-bottom">
+            <li class="thumb-item active-thumb" onclick="changeDrink('images/img1.png', '#017143', this)">
+                <img src="images/thumb1.png" alt="Green Drink">
+            </li>
+            <li class="thumb-item" onclick="changeDrink('images/img2.png', '#eb7495', this)">
+                <img src="images/thumb2.png" alt="Pink Drink">
+            </li>
+            <li class="thumb-item" onclick="changeDrink('images/img3.png', '#d752b1', this)">
+                <img src="images/thumb3.png" alt="Purple Drink">
+            </li>
         </ul>
-        <ul class="sci">
-            <li><a href="#"><img src="images/facebook.png" alt=""></a></li>
-            <li><a href="#"><img src="images/twitter.png" alt=""></a></li>
-            <li><a href="#"><img src="images/instagram.png" alt=""></a></li>
+
+        <ul class="sci reveal-right-delay">
+            <li><a href="#"><img src="images/facebook.png" alt="Facebook"></a></li>
+            <li><a href="#"><img src="images/twitter.png" alt="Twitter"></a></li>
+            <li><a href="#"><img src="images/instagram.png" alt="Instagram"></a></li>
         </ul>
     </section>
 
-
-    <script type="text/javascript">
-        function imgSlider(anything){
-            document.querySelector('.starbucks').src = anything;
-        }
-
-        function ubahwarna(color){
-            const circle = document.querySelector('.circle');
-            circle.style.background = color;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
