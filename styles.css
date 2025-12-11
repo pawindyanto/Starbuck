@@ -1,11 +1,4 @@
-/* --- CSS Variables & Reset --- */
-:root {
-    --primary-color: #017143; /* Warna Hijau Default */
-    --text-dark: #333;
-    --text-light: #fff;
-    --bg-light: #f0f2f5;
-    --transition-speed: 0.4s ease;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
     margin: 0;
@@ -14,228 +7,165 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    background: var(--bg-light);
-    min-height: 100vh;
-    overflow-x: hidden; /* Mencegah scroll horizontal */
-}
-
-/* --- Background Circle Animasi --- */
-.circle-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
+section {
+    position: relative;
     width: 100%;
-    height: 100%;
-    /* Menggunakan gradient agar lebih modern daripada warna solid */
-    background: radial-gradient(circle at right center, var(--primary-color), transparent 70%);
-    /* Bentuk clip-path yang sedikit lebih organik */
-    clip-path: ellipse(65% 95% at 90% 50%);
-    z-index: -1; /* Taruh di belakang */
-    transition: background var(--transition-speed);
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    overflow: hidden; /* Biar lingkaran gak bikin scroll */
 }
 
-/* --- Header / Navbar --- */
 header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 100px;
+    padding: 20px 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 1000;
 }
 
-header .logo {
-    max-width: 90px;
-    transition: transform 0.3s;
-}
-header .logo:hover {
-    transform: rotate(-10deg);
+header .logo img {
+    max-width: 80px;
 }
 
-header nav ul {
+header ul {
     display: flex;
-    gap: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
-header nav ul li {
+header ul li {
     list-style: none;
 }
 
-header nav ul li a {
+header ul li a {
     text-decoration: none;
-    color: var(--text-dark);
+    padding: 6px 15px;
+    color: #333;
+    border-radius: 20px;
     font-weight: 500;
-    font-size: 1.1rem;
-    position: relative;
 }
 
-/* Efek garis bawah saat hover pada menu */
-header nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--primary-color);
-    transition: width 0.3s;
-}
-
-header nav ul li a:hover::after,
-header nav ul li a.active::after {
-    width: 100%;
-}
-
-/* --- Hero Section Layout --- */
-.hero {
-    position: relative;
-    width: 100%;
-    min-height: 100vh; /* Full height screen */
-    padding: 150px 100px 50px; /* Padding atas lebih besar untuk kompensasi header tetap */
-    display: flex;
-    align-items: center;
+header ul li a:hover,
+header ul li a.active {
+    background: #333;
+    color: #fff;
 }
 
 .content {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* --- Text Content --- */
-.textBox {
+.content .textBox {
+    position: relative;
     max-width: 600px;
-    z-index: 2;
+    z-index: 10; /* Biar teks di atas gambar */
 }
 
-.textBox h2 {
-    color: var(--text-dark);
-    font-size: 4.5em; /* Ukuran font lebih besar */
+.content .textBox h2 {
+    color: #333;
+    font-size: 4em;
     line-height: 1.2em;
-    font-weight: 700;
-}
-
-.textBox h2 .brand-name {
-    color: var(--primary-color);
-    font-size: 1.3em; /* "Starbucks" lebih besar lagi */
     font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: inline-block;
-    /* Sedikit text shadow agar pop-up */
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    transition: color var(--transition-speed);
 }
 
-.textBox p {
-    color: #555;
+.content .textBox h2 span {
+    color: #017143; /* Warna default */
+    font-size: 1.2em;
+}
+
+.content .textBox p {
+    color: #333;
+    margin-top: 20px;
     font-size: 1.1em;
-    margin: 30px 0;
-    line-height: 1.8;
 }
 
-/* Modern Button */
-.btn-order {
+.content .textBox a {
     display: inline-block;
-    padding: 15px 40px;
-    background: var(--primary-color);
-    color: var(--text-light);
-    border-radius: 50px;
-    font-weight: 600;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: #017143;
+    color: #fff;
+    border-radius: 40px;
+    font-weight: 500;
     letter-spacing: 1px;
     text-decoration: none;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Bayangan lembut */
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
-.btn-order:hover {
-    transform: translateY(-5px); /* Naik sedikit saat hover */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    background: color-mix(in srgb, var(--primary-color) 85%, black); /* Sedikit lebih gelap */
+.content .textBox a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* --- Image Box & Animation --- */
-.imgBox {
-    width: 500px;
+.content .imgBox {
+    width: 600px;
     display: flex;
-    justify-content: center;
-    z-index: 2;
-    position: relative;
+    justify-content: flex-end;
+    padding-right: 50px;
+    margin-top: 50px;
+    z-index: 10;
 }
 
-.starbucks-product {
-    max-width: 400px;
-    /* Drop shadow agar terlihat 3D */
-    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2));
+.content .imgBox img {
+    max-width: 450px; /* Gambar lebih besar */
+    transition: transform 0.5s ease; /* Transisi halus */
+    filter: drop-shadow(0 20px 20px rgba(0,0,0,0.2));
 }
 
-/* Animasi Melayang (Floating) */
-.floating-animate {
-    animation: floating 4s ease-in-out infinite;
-}
-
-@keyframes floating {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-25px); }
-    100% { transform: translateY(0px); }
-}
-
-/* --- Thumbnails --- */
+/* Bagian Thumbnail */
 .thumb {
     position: absolute;
     left: 50%;
-    bottom: 40px;
+    bottom: 20px;
     transform: translateX(-50%);
     display: flex;
-    gap: 30px;
-    z-index: 10;
-    padding: 10px 20px;
-    /* Glassmorphism effect untuk wadah thumbnail */
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 100;
 }
 
 .thumb li {
     list-style: none;
+    display: inline-block;
+    margin: 0 20px;
     cursor: pointer;
-    transition: all 0.3s;
-    padding: 5px;
+    transition: 0.5s;
+    background: rgba(255,255,255,0.4);
     border-radius: 50%;
-    border: 3px solid transparent; /* Border transparan default */
+    padding: 5px;
 }
 
 .thumb li:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
+    background: #fff;
 }
 
 .thumb li img {
     max-width: 50px;
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+    transition: 0.5s;
 }
 
-/* State aktif untuk thumbnail */
-.thumb li.active-thumb {
-    border-color: var(--primary-color);
-    background: rgba(255,255,255,0.2);
-}
-
-/* --- Social Media Icons --- */
+/* Social Icons */
 .sci {
     position: absolute;
     top: 50%;
     right: 30px;
     transform: translateY(-50%);
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    gap: 25px;
-    z-index: 10;
+    z-index: 100;
 }
 
 .sci li {
@@ -244,45 +174,36 @@ header nav ul li a.active::after {
 
 .sci li a {
     display: inline-block;
-    /* Membuat container lingkaran untuk icon */
-    width: 50px;
-    height: 50px;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.sci li a img {
+    margin: 5px 0;
     transform: scale(0.6);
-    filter: invert(0); /* Karena background putih, icon hitam (default) */
+    filter: invert(1); /* Ikon jadi putih */
     transition: 0.3s;
 }
-
 .sci li a:hover {
-    background: var(--primary-color);
-    transform: translateX(-10px);
+    transform: scale(0.6) translateX(-10px);
 }
 
-.sci li a:hover img {
-     /* Ubah icon jadi putih saat dihover */
-    filter: invert(1) brightness(100%);
+/* Lingkaran Background */
+.circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #017143; /* Warna awal hijau */
+    clip-path: circle(600px at right 800px);
+    transition: background 0.5s ease; /* Transisi warna halus */
+    z-index: 1;
 }
 
-/* --- Responsive CSS (Media Queries) --- */
+/* Responsive simpel */
 @media (max-width: 991px) {
-    header { padding: 20px 50px; }
-    .hero { padding: 120px 50px 100px; flex-direction: column; }
-    .content { flex-direction: column; gap: 50px; }
-    .textBox { max-width: 100%; text-align: center; }
-    .textBox h2 { font-size: 3.5em; }
-    .imgBox { width: 100%; }
-    .starbucks-product { max-width: 300px; }
-    .thumb { bottom: 20px; }
-    .sci { position: relative; top: auto; right: auto; transform: none; flex-direction: row; justify-content: center; margin-top: 40px; }
-    header nav { display: none; /* Sembunyikan menu di mobile untuk simplifikasi */ }
-    .circle-bg { clip-path: circle(50% at 50% 100%); } /* Ubah bentuk background di mobile */
+    section { padding: 40px; flex-direction: column; }
+    .content { flex-direction: column; margin-top: 80px;}
+    .content .textBox h2 { font-size: 3em; }
+    .content .imgBox { width: 100%; justify-content: center; }
+    .content .imgBox img { max-width: 300px; }
+    .sci { background: rgba(0,0,0,0.2); border-radius: 10px; right: 0;}
+    header { padding: 20px; }
+    .circle { clip-path: circle(400px at center bottom); }
 }
